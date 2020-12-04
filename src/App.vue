@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <!-- <router-link to="/">Teams</router-link> |-->
+    <!-- <router-link to="/about">About</router-link> -->
   </div>
   <router-view :list="teamList"/>
   <div></div>
@@ -12,8 +12,11 @@ import axios from 'axios'
 export default {
   data() {
       return {
-          teamList: undefined
+          teamList: undefined,
+          gameList: undefined
       }
+  },
+  methods: {
   },
   mounted() {
     axios.get('https://api.collegefootballdata.com/teams')

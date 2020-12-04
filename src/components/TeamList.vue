@@ -1,23 +1,22 @@
 <template>
-<div>
 <h1>Team List</h1>
+<div>
 <table class="center">
-    <tr>
-      <td></td>
-      <td> School </td>
-      <td> Color </td>
-      <td> Division </td>
-      <td> Mascot </td>
+    <tr class='clickable-row'>
+      <th> School </th>
+      <th> Color </th>
+      <th> Division </th>
+      <th> Mascot </th>
     </tr>
 
     <tr
     v-for="team in list"
     :key="team.id">
-      <td> <button>CLICK ME</button></td>
       <td>  {{team.school}} </td>
       <td :style="{color:team.color}">  {{team.color}}   </td>
       <td>  {{team.division}}   </td>
       <td>  {{team.mascot}}   </td>
+      <button @click="showGames()"> SHOW GAMES </button>
     </tr>
 </table>
 </div>
@@ -26,44 +25,6 @@
 <script>
 
 export default {
-  /* props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    abbreviation: {
-      type: String,
-      required: false,
-    },
-    alt_color: {
-      type: String,
-      required: false,
-    },
-    color: {
-      type: String,
-      required: false,
-    },
-    conference: {
-      type: String,
-      required: false,
-    },
-    division: {
-        type: String,
-        required: false,
-    },
-    logos: {
-        type: Array[String],
-        required: false,
-    },
-    mascot: {
-        type: String,
-        required: false,
-    },
-    school: {
-        type: String,
-        required: false,
-    }
-  }, */
   name: "TeamList",
   props: {
     list: {
@@ -72,10 +33,13 @@ export default {
   },
   data() {
       return {
-        teamList: undefined
+        showdetails: false
       }
   },
   methods: {
+    showGames() {
+      this.$router.push('about');
+    }
   },
 };
 </script>

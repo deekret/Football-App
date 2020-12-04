@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="teams">
     <team-list :list="this.list"> </team-list>
   </div>
 </template>
@@ -10,7 +10,7 @@ import TeamList from '../components/TeamList.vue'
 //import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'Home',
+  name: 'Teams',
   components: {
     TeamList
   },
@@ -18,6 +18,11 @@ export default {
   data() {
     return{
       viewTeamList: this.list
+    }
+  },
+  methods: {
+    showGames() {
+
     }
   }
 }
