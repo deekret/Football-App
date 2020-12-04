@@ -3,28 +3,27 @@
     <!-- <router-link to="/">Teams</router-link> |-->
     <!-- <router-link to="/about">About</router-link> -->
   </div>
-  <router-view :list="teamList"/>
+  <router-view :list="teamList" />
   <div></div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   data() {
-      return {
-          teamList: undefined,
-          gameList: undefined
-      }
+    return {
+      teamList: undefined,
+      gameList: undefined,
+    };
   },
-  methods: {
-  },
+  methods: {},
   mounted() {
-    axios.get('https://api.collegefootballdata.com/teams')
-    .then((response) => {
+    axios.get("https://api.collegefootballdata.com/teams").then((response) => {
       this.teamList = response.data;
-      console.warn(response.data)})
+      console.warn(response.data);
+    });
   },
-}
+};
 </script>
 
 <style>
@@ -49,10 +48,11 @@ export default {
   color: #42b983;
 }
 
-#app table, th, td {
+#app table,
+th,
+td {
   border: 1px solid black;
   border-collapse: collapse;
-  
 }
 .center {
   margin-left: auto;

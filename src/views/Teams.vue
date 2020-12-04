@@ -5,27 +5,25 @@
 </template>
 
 <script>
-import TeamList from '../components/TeamList.vue'
+import TeamList from "../components/TeamList.vue";
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'Teams',
+  name: "Teams",
   components: {
-    TeamList
+    TeamList,
   },
-  props:['list'],
+  props: ["list"],
   data() {
-    return{
-      viewTeamList: this.list
-    }
+    return {
+      viewTeamList: this.list,
+    };
   },
   methods: {
-    showGames() {
-
-    }
-  }
-}
+    showGames() {},
+  },
+};
 </script>
 <style>
 * {
