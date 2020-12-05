@@ -9,11 +9,11 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
       teamList: undefined,
-      gameList: undefined,
     };
   },
   methods: {},

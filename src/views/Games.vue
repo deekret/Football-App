@@ -8,19 +8,22 @@
   <h2>Coming games:</h2>
   <div v-if="futureGames.length == 0">No games available</div>
   <div v-if="futureGames.length != 0">
-    <h2>Coming games:</h2>
     <table class="center">
       <tr>
         <th>Home Team</th>
         <th>Away Team</th>
         <th>Date</th>
+        <th>Time</th>
         <th>Venue</th>
       </tr>
 
       <tr v-for="game in futureGames" :key="game.id">
         <td>{{ game.home_team }}</td>
         <td>{{ game.away_team }}</td>
-        <td>{{ game.start_date.toLovalDateString() }}</td>
+        <td>{{ game.start_date.split("T")[0] }}</td>
+        <td>
+          {{ game.start_date.split("T")[1].substring(0, 5) }}
+        </td>
         <td>{{ game.venue }}</td>
       </tr>
     </table>
