@@ -14,7 +14,7 @@
         <td :style="{ color: team.color }">{{ team.color }}</td>
         <td>{{ team.division }}</td>
         <td>{{ team.mascot }}</td>
-        <button @click="showGames(team.id)">SHOW GAMES</button>
+        <button @click="showGames(team.id, team.school)">SHOW GAMES</button>
       </tr>
     </table>
   </div>
@@ -34,8 +34,11 @@ export default {
     };
   },
   methods: {
-    showGames(id) {
-      this.$router.push({ name: "games", params: { year: 2000, teamId: id } });
+    showGames(id, name) {
+      this.$router.push({
+        name: "games",
+        params: { year: 2000, teamId: id, teamName: name },
+      });
     },
   },
 };

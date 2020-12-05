@@ -25,6 +25,7 @@ export default {
   },
 };
 </script>
+
 <style>
 * {
   box-sizing: border-box;
@@ -35,7 +36,7 @@ html {
 body {
   margin: 0;
 }
-header {
+#app h1 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 3rem auto;
   border-radius: 10px;

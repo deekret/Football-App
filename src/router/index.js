@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Teams from "../views/Teams.vue";
-import About from "../views/About.vue";
+import Games from "../views/Games.vue";
 
 const routes = [
   {
@@ -13,9 +13,7 @@ const routes = [
     name: "games",
     params: "year",
     // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: About,
+    component: Games,
     props: true,
   },
 ];
