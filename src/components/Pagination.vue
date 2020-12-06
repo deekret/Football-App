@@ -37,15 +37,33 @@
 <script>
 export default {
   name: "pagination",
-  props: ["gameList", "currentPage", "pageSize"],
+  props: ["gameListSize", "currentPage", "pageSize"],
+  data() {
+    return {
+      totalPageNum: 0,
+    };
+  },
+  //watch: {
+  //  totalPageNum: function() {
+  //    if (this.currentPage + 1 > Math.ceil(this.gameListSize / this.pageSize)) {
+  //      this.updatePage(Math.ceil(this.gameListSize / this.pageSize) - 1);
+  //    }
+  //  },
+  //},
   methods: {
     updatePage(pageNumber) {
-      //alert(pageNumber);
       this.$emit("page:update", pageNumber);
     },
     totalPages() {
-      if (this.gameList) {
-        return Math.ceil(this.gameList.length / this.pageSize);
+      if (this.gameListSize != 0) {
+        if (
+          this.currentPage + 1 >
+          Math.ceil(this.gameListSize / this.pageSize)
+        ) {
+          this.updatePage(Math.ceil(this.gameListSize / this.pageSize) - 1);
+        }
+        this.totalPageNum = Math.ceil(this.gameListSize / this.pageSize);
+        return Math.ceil(this.gameListSize / this.pageSize);
       } else {
         return 0;
       }
