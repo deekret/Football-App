@@ -5,9 +5,8 @@
     <div v-if="filteredGamesList.length == 0">No games available</div>
   </div>
 
-  <h2>Coming games:</h2>
-  <div v-if="futureGames.length == 0">No games available</div>
   <div v-if="futureGames.length != 0">
+    <h2>Coming games:</h2>
     <table class="center">
       <tr>
         <th>Home Team</th>
@@ -28,9 +27,8 @@
       </tr>
     </table>
   </div>
-  <h2>Past games:</h2>
-  <div v-if="pastGames.length == 0">No games available</div>
-  <div v-if="filteredGamesList.length != 0">
+  <div v-if="pastGames.length != 0">
+    <h2>Past games:</h2>
     <table class="center">
       <tr>
         <th>Home Team</th>
@@ -65,7 +63,7 @@ export default {
     return {
       gameList: undefined,
       filteredGamesList: [],
-      years: [2018, 2019, 2020],
+      years: Array.from({ length: 35 }, (_, i) => 2025 - i),
       currentDate: new Date(),
       previousDate: new Date("2000-08-26T00:00:00.000Z"),
     };
@@ -80,7 +78,7 @@ export default {
           if (date < this.currentDate) filtered.push(this.filteredGamesList[i]);
         }
       }
-      return filtered;
+      return filtered.sort((a, b) => (a.start_date < b.start_date ? 1 : -1));
     },
     futureGames() {
       let filtered = [];
@@ -104,7 +102,6 @@ export default {
     splitByDate() {
       alert(this.filteredGamesList.length[0]);
       this.filteredGamesList.forEach(function(game, index) {
-        alert(index);
         const gameDate = new Date(game.start_date);
         console.log(gameDate, index);
       });

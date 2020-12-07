@@ -1,5 +1,5 @@
 <template>
-  <div v-if="totalPages() > 0" class="pagination-wrapper">
+  <a v-if="totalPages() > 0" class="pagination-wrapper">
     <span
       v-if="showPreviousLink()"
       class="pagination-button"
@@ -7,6 +7,10 @@
     >
       &lt;&lt;
     </span>
+    <span v-if="!showPreviousLink()" class="pagination-button">
+      &lt;&lt; &lt;
+    </span>
+
     <span
       v-if="showPreviousLink()"
       class="pagination-button"
@@ -31,7 +35,11 @@
     >
       >>
     </span>
-  </div>
+
+    <span v-if="!showNextLink()" class="pagination-button">
+      > >>
+    </span>
+  </a>
 </template>
 
 <script>
@@ -78,7 +86,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .pagination-button {
   cursor: pointer;
 }
